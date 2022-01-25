@@ -1,10 +1,13 @@
-import React from "react";
+import React, {useState} from "react";
 import Item from "./item";
 import Form from "./form";
+import Switch from "./Switch";
+
 
 
 class Table extends React.Component {
-
+ 
+  
   renderItems(items) {
     return items.map((item, index) => {
      return <Item key={index} item={item} type={this.props.type} index={index} removeItem={this.props.removeItem} editItem={this.props.editItem} />
@@ -12,17 +15,18 @@ class Table extends React.Component {
   }
 
   //  ****************       VIEW       **************** //
-
+ 
   render() {
+    const { isToggled } = true;
     return (
       <div className="input-group">
         <table className="table dataTable" >
           <thead className="thead-default">
             <tr>
-              <th>Item Description</th>
-              <th>One-Time</th>
+              <th><Switch   onClick={() => this.setState({  isToggled: !isToggled })} /> <h3>USD</h3></th>
+              {/* <th>One-Time</th>
               <th>Monthly</th>
-              <th>Edit / Delete</th>
+              <th>Edit / Delete</th> */}
             </tr>
           </thead>
           <tbody>

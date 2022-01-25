@@ -84,11 +84,11 @@ input.active:invalid {
   margin-right: 5px;
 }
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   label {
     display: none;
   }
-}
+} */
 
 .form-control {
   width: auto;
@@ -106,3 +106,15 @@ input.active:invalid {
 .alert {
   margin-top: 20px;
 }
+.form-inline {display: flex;}
+.input-group {
+  width: 65vw !important;
+}
+.form-group{width: 100%;}
+.form-control{text-align: right;}
+.thead-default th{text-align: end;}
+.outerrwrapper{
+  padding: 80px;
+  text-align: center;
+}
+.toggler{    text-align: left;}

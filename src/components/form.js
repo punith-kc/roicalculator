@@ -89,7 +89,7 @@ class Form extends React.Component {
     return (
         <form onSubmit={this.handleSubmit} className="form-inline" >
           <div className="form-group">
-            <label>description: </label>
+            {/* <label>description: </label> */}
               <input
                 className="form-control"
                 name="description"
@@ -99,10 +99,11 @@ class Form extends React.Component {
                 onChange={this.handleInputChange}
                 maxLength="30"
                 required
+                placeholder ="0.000 USD"
               />
             <div className="error" id={ `${this.props.type}descriptionError` }></div>
           </div>
-          <div className="form-group">
+          {/* <div className="form-group">
             <label>One-time: </label>
               <input
                 className="form-control"
@@ -131,7 +132,7 @@ class Form extends React.Component {
                 required
                />
            <div className="error" id={ `${this.props.type}monthlyError` }></div>
-          </div>
+          </div> */}
           <button id={`${this.props.type}Submit`} className="btn submit" >{`Add ${this.props.type} item`}</button>
           <button id={`${this.props.type}Update`} className="btn submit hide" >Update item</button>
           <button type="button" id={`${this.props.type}Cancel`} className="btn btn-default hide" onClick={this.handleEditCancelation}>Cancel</button>

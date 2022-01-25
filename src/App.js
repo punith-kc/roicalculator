@@ -1,9 +1,15 @@
-import React, { Component } from "react";
+import React, {Component, useState} from "react";
 import Table from "./components/table";
 import Calculations from "./components/calculations"
 import "./App.css";
+import Foo from "./components/Foo";
+
+
+
+
 
 class App extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -40,6 +46,9 @@ class App extends Component {
   }
 
 // ****************       CRUD       **************** //
+
+
+
 
   addItem(type) {
     let newItem = {
@@ -187,7 +196,7 @@ class App extends Component {
           <p className="App-intro">Enter values below. Click SAVE to store your data to the browser"s localStorage</p>
         </div>
         <div className="container">
-          <h3>Revenue Items</h3>
+          <h3>ROI Calculator</h3>
           <Table
             items={this.state.revenue_items}
             removeItem={this.removeItem}
@@ -200,7 +209,19 @@ class App extends Component {
             inputOneTime={this.state.revenue_oneTime}
             inputMonthly={this.state.revenue_monthly}
           />
-          <h3>Expense Items</h3>
+          
+          <h5>  Timeframe</h5>
+
+          <div className="buttons">
+            <button onClick={ this.saveData } className="btn btn-warning" >1 DAY</button>
+            <button onClick={ this.saveData } className="btn outline-secondary" >7 DAYS</button>
+            <button onClick={ this.saveData } className="btn outline-secondary" >30 DAYS</button>
+            <button onClick={ this.saveData } className="btn outline-secondary" >1 YEARS</button>
+            <button onClick={ this.saveData } className="btn outline-secondary" >5 YEARS</button>
+
+            </div>
+
+          <h3>Enable Accelerated APY</h3>
           <Table
             items={this.state.expense_items}
             removeItem={this.removeItem}
@@ -214,12 +235,16 @@ class App extends Component {
             inputMonthly={this.state.expense_monthly}
           />
           <div className="buttons">
-            <button onClick={ this.saveData } className="btn btn-primary" >SAVE</button>
-            <button onClick={ this.clearData } className="btn btn-danger" >DELETE ALL DATA</button>
+          <button onClick={ this.saveData } className="btn btn-warning" >1 DAY</button>
+            <button onClick={ this.saveData } className="btn outline-secondary" > Tier 1</button>
+            <button onClick={ this.saveData } className="btn outline-secondary" >Tier 2</button>
+            <button onClick={ this.saveData } className="btn outline-secondary" >Tier 3</button>
+            <button onClick={ this.saveData } className="btn outline-secondary" >Tier 4</button>
             <div id="saveAlert" className="alert alert-success hide">Your data has been saved to your browser's localStorage.</div>
             <div id="clearAlert" className="alert alert-warning hide">Your data has been permenantly deleted.</div>
           </div>
           <Calculations revenue={this.state.revenue_items} expense={this.state.expense_items} />
+          <Foo/>
         </div>
       </div>
     );
